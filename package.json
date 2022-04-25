@@ -1,0 +1,20 @@
+{
+  "name": "@flickshot/flickshot",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Flickshot.fr",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fickshot/flickshot.git"
+  },
+  "author": "Olivier HAMON",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fickshot/flickshot/issues"
+  },
+  "homepage": "https://github.com/fickshot/flickshot#readme"
+}
