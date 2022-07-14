@@ -1,21 +1,7 @@
 ---
 import { MarkdownInstance } from "astro";
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
-
-export type Article = {
-    title: string
-    slug: string
-    description: string
-    type: string
-    language: string
-    date: string
-    lastmod: string
-    views: number
-    author: string
-    country: string
-    categories: string[]
-    tags: string[]
-};
+import { Article } from "./_types";
 
 export async function getStaticPaths() {
     const articles = await Astro.glob<Article>('../../contents/articles/*.md');

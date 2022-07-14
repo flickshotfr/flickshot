@@ -1,7 +1,7 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import albumsFile from './albums.json';
-import { Album } from "./types";
+import albumsFile from './_albums.json';
+import { Album } from "./_types";
 
 export async function getStaticPaths() {
     const albums = (Object.values(albumsFile) as Album[]).filter(
