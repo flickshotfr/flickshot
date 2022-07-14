@@ -1,4 +1,4 @@
 packages:
-  - "api/**"
   - "cli/**"
   - "app"
+  - "app2"

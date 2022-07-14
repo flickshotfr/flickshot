@@ -1,20 +1,6 @@
-<!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
-<template>
+---
+
+---
 <div class="bg-white w-full">
     <div class="max-w-4xl mx-auto px-2 sm:px-4 lg:px-8 ">
       <div class="flex px-2 justify-between lg:px-0">
@@ -41,25 +27,3 @@
       </div>
     </div>
 </div>
-
-</template>
-
-<script lang="ts" setup>
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-import { SearchIcon } from '@heroicons/vue/solid'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
-
-const items = [
-    {
-        name: '',
-        route: '',
-    }
-]
-</script>
-
-<style>
-  .bg-header {
-    background-color: #ffb64d;
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fe8b00' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
-  }
-</style>
