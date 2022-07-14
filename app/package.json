@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build --experimental-static-build --verbose",
     "preview": "astro preview",
     "format": "pnpm prettier -w ."
   },
