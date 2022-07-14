@@ -1,0 +1,23 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import albumsFile from './albums.json';
+import { Album } from "./types";
+
+const albums = (Object.values(albumsFile) as Album[]).filter((album) => album.pictures && album.pictures.length > 0);
+---
+
+<MainLayout title="Albums">
+    <div class="max-w-4xl mx-auto grid gap-2">
+        <div class="text-left">
+            <h1 class="text-white text-xl bg-black inline rounded-full px-2 py-0.5 font-bold">Albums</h1>
+            <p class=" italic">Toutes ces images sont libre de droit et d'utilisation. <a class=" float-right" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/"><img class="inline" src="/cc.png" /></a> </p>
+        </div>
+        <div class="grid grid-cols-3 gap-3 my-6">
+            { albums.map((album) => <><a href={`/albums/${album.id}`} class="relative cursor-pointer hover:scale-95 transform duration-150">
+                <img class="rounded" src={`/images/pictures/${album.pictures[0].name}.jpg`} />
+                <div class="backdrop-blur-sm bg-white/30 absolute bottom-0 left-0 text-white text-lg font-bold p-2 rounded-tr-lg">{album.name}</div>
+            </a></>) }
+        </div>
+    </div>
+</MainLayout>
+

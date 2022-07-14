@@ -1,0 +1,29 @@
+---
+import MainLayout from './MainLayout.astro';
+import format from 'date-fns/format';
+
+export interface Props {
+	title: string
+    categories: string
+    author?: string
+    views?: number
+    date: string
+}
+
+const { title, author, categories, views, date } = Astro.props as Props;
+---
+<MainLayout title={title}>
+<div class="relative px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto bg-white rounded-md py-6 my-6">
+    <div class="text-lg max-w-prose mx-auto mb-3">
+        <h1>
+            <span class="block text-base text-center text-orange-600 font-semibold tracking-wide uppercase">{categories}</span>
+            <span class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">{title}</span>
+        </h1>
+        <p class="mt-2 text-xl text-gray-500 leading-8 text-center">Ecrit par {author} le {format(new Date(date), 'dd/MM/yyyy')}. La news avait été vu {views} fois.</p>
+    </div>
+
+    <article>
+        <slot />
+    </article>
+</div>
+</MainLayout>

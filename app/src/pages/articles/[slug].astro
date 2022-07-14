@@ -1,0 +1,59 @@
+---
+import { MarkdownInstance } from "astro";
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+export type Article = {
+    title: string
+    slug: string
+    description: string
+    type: string
+    language: string
+    date: string
+    lastmod: string
+    views: number
+    author: string
+    country: string
+    categories: string[]
+    tags: string[]
+};
+
+export async function getStaticPaths() {
+    const articles = await Astro.glob<Article>('../../contents/articles/*.md');
+
+    return articles.map((article) => ({ params: { slug: article.frontmatter.slug }, props: { article } }));
+}
+
+const { slug } = Astro.params;
+const { Content, frontmatter } = Astro.props.article as MarkdownInstance<Article>;
+const title = frontmatter.title
+const author = frontmatter.author
+const views = frontmatter.views
+const date = frontmatter.date
+const categories = frontmatter.categories[0]
+---
+<ArticleLayout 
+    title={title} 
+    author={author} 
+    categories={categories}
+    views={views}
+    date={date}
+    >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- We've used 3xl here, but feel free to try other max-widths based on your needs -->
+        <div class="max-w-3xl mx-auto">
+            <!-- Content goes here -->
+            <div class="prose lg:prose-xl prose-orange">
+                <Content />
+            </div>
+        </div>
+      </div>
+</ArticleLayout>
+
+<style is:global>
+    .prose img[src^="/images/countries"] {
+        width: 20px;
+        height: 20px;
+        display: inline;
+        margin-right: 3px;
+    }
+</style>

@@ -1,0 +1,38 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Article } from "./articles/[slug].astro";
+import format from 'date-fns/format';
+
+const title = 'Toute l\'actualité Counter-Strike'
+
+const articles = (await Astro.glob<Article>('../contents/articles/*.md'));
+
+const articlesSorted  = articles.sort((a, b) => new Date(a.frontmatter.date).getTime() < new Date(b.frontmatter.date).getTime() ? 1 : -1);
+---
+<MainLayout title={title}>
+    <div class="max-w-4xl mx-auto grid gap-2">
+        <div class="bg-white p-6 rounded">
+            <div class="py-3 text-left">
+                <h1 class="text-white text-xl bg-black inline rounded-full px-2 py-0.5 font-bold">À propos</h1>
+            </div>
+            <p>
+                Flickshot.fr était un site d'actualité sur Counter-Strike crée par  <span class=" text-blue-400 font-bold">neLendirekt</span>, <span class=" text-blue-400 font-bold">AnthobotwiN</span> et <span class=" text-blue-400 font-bold">Olriko</span>.
+                De nombreux contributeurs nous ont aidé à faire vivre le site notamment Siger, Sudarky, WESCOCO, JOR, Ragnarork, Aks, iDexCsgo, faculty07, Spyk, FleauxTV, YoKerz_, HBACKM, F_4six, Darktortue, Alexandre, Kazufly, ShiN, MAXIMEC, UsualDzn, PyRo, Gorgorot38, dadwu_dendelou.
+                L'ancien site web est un cout et nous voulions péréniser les articles et les photos. C'est pourquoi ce nouveau site a ete crée. Ce site est hebergé statiquement sur Github.
+            </p>
+        </div>
+        <div class="bg-white p-6 rounded">
+            <ul class="grid gap-1">
+                {articlesSorted.map((article) => (<><li class="">
+                    <a class="flex overflow-hidden" href={`/articles/${article.frontmatter.slug}`}>
+                       <div class="w-1/8">{format(new Date(article.frontmatter.date), 'dd/MM/yyyy')}</div>
+                       <div class="px-2"><img class="w-6 h-5 rounded" src={`/images/countries/${article.frontmatter.country}.svg`}/></div>
+                       <div class="text-orange-500 w-1/6 text-center">{article.frontmatter.categories}</div>
+                       <div class="whitespace-nowrap truncate">{article.frontmatter.title}</div>
+                    </a>
+                </li></>))}
+            </ul>
+        </div>
+        <div class="w-2/3"></div>
+    </div>
+</MainLayout>

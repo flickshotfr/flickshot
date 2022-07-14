@@ -1,0 +1,100 @@
+{
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Content preview",
+          "name": "preview",
+          "type": "image"
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "boolean"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        },
+        {
+          "title": "id",
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "title": "type",
+          "name": "type",
+          "type": "string"
+        },
+        {
+          "title": "language",
+          "name": "language",
+          "type": "string"
+        },
+        {
+          "title": "category",
+          "name": "category",
+          "type": "string"
+        },
+        {
+          "title": "publishedAt",
+          "name": "publishedAt",
+          "type": "datetime"
+        },
+        {
+          "title": "timezone",
+          "name": "timezone",
+          "type": "string"
+        },
+        {
+          "title": "hasImage",
+          "name": "hasImage",
+          "type": "datetime"
+        },
+        {
+          "title": "views",
+          "name": "views",
+          "type": "datetime"
+        },
+        {
+          "title": "author",
+          "name": "author",
+          "type": "string"
+        },
+        {
+          "title": "country",
+          "name": "country",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "[markdown]": {},
+  "frontMatter.content.fmHighlight": true,
+  "frontMatter.content.autoUpdateDate": true
+}
